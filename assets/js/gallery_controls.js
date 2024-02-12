@@ -1,0 +1,23 @@
+const track = document.getElementById("image-track");
+
+window.onmousedown = e => {
+    track.dataset.mouseDownAt = e.clientX;
+}
+
+window.onmousemove = e => {
+    if(track.dataset.mouseDownAt === "0") return;
+
+    const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
+    const maxDelta = window.innerWidth/2;
+    const percentage = (mouseDelta/maxDelta)*-100,
+    nextPercentage = parseFloat(track.dataset.previousPercent)+percentage;
+
+    track.dataset.percentage = nextPercentage
+
+    track.style.transform = `translate(${percentage}%,0%)`;
+}
+
+window.onmouseup = () => {
+    track.dataset.mouseDownAt = "0";
+    track.dataset.previousPercent = track.dataset.percentage
+}

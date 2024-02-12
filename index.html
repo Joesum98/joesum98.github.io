@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="physics, data, science, mathematics">
+    <meta name="description" content="Joe Summers has a Masters of Science in 
+    Computational Astrophysics from the University of Utah.">
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>Joe Summers</title>
   </head>
@@ -8,13 +13,20 @@
     <header>
       <div>
         <img src="assets\img\logo.png" class="logo" alt="JS Logo" />
-      </div>
+        <a href="about.html">About Me</a>
+        <a href="#heading 1">Heading 1</a>
+        <a href="https://desmos.com" target="_blank">Desmos</a>
+        <a href="mailto:joesum98@gmail.com">Email me!</a>
     </header>
-    <img
-      src="assets/img/gallery/jwst.jpeg"
-      class="gallery"
-      alt="JWST Deep Field"
-    />
-    <p class="caption">Gravitational Lensing captured by JWST</p>
+    <h1 id="gallery">Gallery</h1>
+    <p id="testing"></p>
+    <div id="image-track" data-MouseDownAt="0">
+      <script src="assets/js/gallery_controls.js"></script>
+      <img class="gallery" src="assets/img/gallery/jwst.jpeg" draggable="false">
+      <img class="gallery" src="assets/img/gallery/jwst.jpeg" draggable="false">
+      <img class="gallery" src="assets/img/gallery/jwst.jpeg" draggable="false">
+      <img class="gallery" src="assets/img/gallery/jwst.jpeg" draggable="false">
+      <img class="gallery" src="assets/img/gallery/jwst.jpeg" draggable="false">
+    </div>
   </body>
 </html>

@@ -8,34 +8,37 @@
   inherits: false;
   initial-value: #d6d6d6;
 }
-@property --blue {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #33596b;
-}
-@property --green {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #39512a;
-}
-@property --orange {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #d1603d;
-}
-@property --yellow {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #ffba46;
-}
+
 body {
-  background-color: var(--dark);
+  background-color: #343434;
 }
 
-div {
-  width: 100%;
-  margin: 1%;
-  display: inline-block;
+h1{
+  font-family: "blenny trial";
+  font-size: 60pt;
+  height: 12vh;
+  width: 100vw;
+  background-color: #343434;
+  margin: 0rem;
+  overflow: hidden;
+}
+
+img.gallery{
+  width: 40vmin;
+  height: 40vmin;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5%;
+}
+
+#image-track{
+  padding: 5%;
+  display: flex;
+  gap: 4vmin;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  transform: translate(0%,0%);
 }
 
 header {
@@ -43,17 +46,12 @@ header {
 }
 
 img.logo {
-  width: 10%;
+  width: 20%;
   border-radius: 10%;
   float: left;
   margin: 10px;
 }
 
-img.gallery {
-  width: 33%;
-  border-radius: 10%;
-}
-
 p.caption {
-  font-weight: bold;
+  font-weight: 12;
 }

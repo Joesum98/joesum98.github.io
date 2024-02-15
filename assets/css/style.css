@@ -1,59 +1,34 @@
-@property --dark {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #343434;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
-@property --light {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #d6d6d6;
-}
-@property --blue {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #33596b;
-}
-@property --green {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #39512a;
-}
-@property --orange {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #d1603d;
-}
-@property --yellow {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #ffba46;
-}
+
 body {
-  background-color: var(--dark);
+  background-color: #343434;
 }
 
-div {
+.background {
+  position: fixed;
+  top: 0%;
+  left: 0%;
   width: 100%;
-  margin: 1%;
-  display: inline-block;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
 }
 
-header {
-  width: 100%;
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
 }
 
-img.logo {
-  width: 10%;
-  border-radius: 10%;
-  float: left;
-  margin: 10px;
-}
-
-img.gallery {
-  width: 33%;
-  border-radius: 10%;
-}
-
-p.caption {
-  font-weight: bold;
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  /* Add more styling as needed */
 }

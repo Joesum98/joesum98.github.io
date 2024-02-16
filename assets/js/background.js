@@ -88,7 +88,7 @@ document.getElementById('logo').addEventListener('mouseover', () => {
     noiseStep = 0.006;
     let logo = document.getElementById('logo');
     logo.style.filter = 'drop-shadow(black 100px 100px 50px) brightness(150%)'
-    logo.style.transform = 'translate(39vw, 34vh)';
+    logo.style.transform = 'translate(40vw, 35vh)';
     logo.style.transition = '1s'
 });
     
@@ -96,7 +96,7 @@ document.getElementById('logo').addEventListener('mouseleave', () => {
     noiseStep = 0.002;
     logo.style.filter = 'drop-shadow(black 50px 50px 10px)';
     logo.style.opacity = '100%';
-    logo.style.transform = 'translate(40vw, 35vh)';
+    logo.style.transform = 'translate(41vw, 36vh);';
 });
 
 

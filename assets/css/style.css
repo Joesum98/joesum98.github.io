@@ -52,13 +52,21 @@ svg {
   right: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(500px);
 }
 
 #logo {
   width: 15%;
   height: auto;
   display: block;
-  transform: translate(40vw, 35vh);
+  transform: translate(41vw, 36vh);
   filter: drop-shadow(black 50px 50px 10px);
+}
+
+#texture {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(500px);
 }

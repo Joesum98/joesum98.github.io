@@ -2,12 +2,8 @@ body,
 html {
   margin: 0;
   padding: 0;
-  height: 100%;
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: #343434;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -15,18 +11,24 @@ body {
   position: relative;
   z-index: -1;
   pointer-events: none;
+  height: 100vh;
+  width: 100vw;
 }
 
 .blobs{
   background-color: #343434;
+  height: 100vh;
+  width: 100vw;
+  object-fit: fill;
+  object-position: center;
 }
 
 #blur{
   position: absolute;
   top: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   backdrop-filter: blur(150px);
 }
 
@@ -41,6 +43,7 @@ body {
 
 #logo{
   position: absolute;
+  object-fit: fill;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -60%);

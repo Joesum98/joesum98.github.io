@@ -1,50 +1,64 @@
-body,
-html {
+* {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  width: 100vw;
+  box-sizing: border-box;
+}
+
+body {
+  /* align our svg to the center of the viewport both horizontally and vertically */
   overflow: hidden;
 }
 
 .background {
-  position: relative;
-  z-index: -1;
-  pointer-events: none;
   height: 100vh;
   width: 100vw;
-}
-
-.blobs{
   background-color: #343434;
-  height: 100vh;
-  width: 100vw;
-  object-fit: fill;
-  object-position: center;
 }
 
-#blur{
+svg {
+  /* a perfectly square <svg> element that will never overflow the viewport */
+  height: 100vh;
+  width: 100vw;
+}
+
+#green {
+  position: absolute;
+  overflow: hidden;
+  transform: translate(10%, 10%);
+  scale: 1.5;
+}
+#blue {
+  position: absolute;
+  overflow: hidden;
+  transform: translate(-40%, 20%);
+  scale: 1.5;
+}
+#yellow {
+  position: absolute;
+  overflow: hidden;
+  transform: translate(-50%, -40%);
+  scale: 1.5;
+}
+#orange {
+  position: absolute;
+  overflow: hidden;
+  transform: translate(15%, -40%);
+  scale: 1.5;
+}
+
+#blur {
   position: absolute;
   top: 0;
   right: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(150px);
+  backdrop-filter: blur(500px);
 }
 
-#texture{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1000%;
-  height: 100%;
-  opacity: 1%;
-}
-
-#logo{
-  position: absolute;
-  object-fit: fill;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -60%);
+#logo {
+  width: 15%;
+  height: auto;
+  display: block;
+  transform: translate(40vw, 35vh);
+  filter: drop-shadow(black 50px 50px 10px);
 }

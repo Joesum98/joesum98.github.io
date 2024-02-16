@@ -58,8 +58,8 @@ svg {
   width: 15%;
   height: auto;
   display: block;
-  transform: translate(41vw, 36vh);
-  filter: drop-shadow(black 50px 50px 10px);
+  transform: translate(42vw, 36vh);
+  filter: drop-shadow(black 30px 30px 10px);
 }
 
 #texture {

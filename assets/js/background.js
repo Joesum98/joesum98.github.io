@@ -2,6 +2,7 @@ import { spline } from 'https://cdn.skypack.dev/@georgedoescode/spline@1.0.1';
 import SimplexNoise from 'https://cdn.skypack.dev/simplex-noise@2.4.0';
 
 const colors = ['green', 'blue', 'orange', 'yellow'];
+let logoClicked = false;
 
 // our <path> element for each colored blob
 const paths = [];
@@ -51,6 +52,32 @@ function map(n, start1, end1, start2, end2){
     return start2+range*frac;
 }
 
+function storeLogo(){
+    logoClicked = true;
+    noiseStep = 0.01;
+    let logo = document.getElementById('logo');
+    logo.style.paddingLeft = '5px'
+    logo.style.paddingTop = '2px'
+    logo.style.transform = 'translate(0vw, 0vh)';
+    logo.style.scale = '.5';
+    logo.style.filter = 'drop-shadow(black 20px 20px 10px)';
+    logo.style.transition = '4s';
+    document.body.style.overflow = "scroll";
+}
+
+function unstoreLogo(){
+    window.scrollTo(0,0);
+    let logo = document.getElementById('logo');
+    document.body.style.overflow = "hidden";
+    logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
+    logo.style.scale = '1';
+    logo.style.transform = 'translate(42vw, 36vh)';
+    logo.style.padding = '0px';
+    logo.style.transition = '4s';
+    noiseStep = 0.002;
+    logoClicked = false;
+}
+
 const shapes = [];
 for (let color of colors){
     shapes.push(createPoints())
@@ -82,25 +109,45 @@ for (let color of colors){
         }
     }
     requestAnimationFrame(animate);
-  })();
+})();
 
 document.getElementById('logo').addEventListener('mouseover', () => {
-    noiseStep = 0.006;
-    let logo = document.getElementById('logo');
-    logo.style.filter = 'drop-shadow(black 80px 80px 50px) brightness(150%)'
-    logo.style.transform = 'translate(39vw, 34vh)';
-    logo.style.transition = '1s'
+    if (!logoClicked){
+        noiseStep = 0.006;
+        let logo = document.getElementById('logo');
+        logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(150%)'
+        logo.style.transform = 'translate(41vw, 35vh)';
+        logo.style.transition = '1s'
+    }
+    else{
+        noiseStep = 0.006;
+        let logo = document.getElementById('logo');
+        logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(150%)'
+        logo.style.transform = 'translate(-1vw, -1vh)';
+        logo.style.transition = '1s'
+    }
 });
     
 document.getElementById('logo').addEventListener('mouseleave', () => {
-    noiseStep = 0.002;
-    let logo = document.getElementById('logo');
-    logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
-    logo.style.transform = 'translate(42vw, 36vh)';
-    logo.style.transition = '1s'
+    if (!logoClicked){
+        noiseStep = 0.002;
+        let logo = document.getElementById('logo');
+        logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
+        logo.style.transform = 'translate(42vw, 36vh)';
+        logo.style.transition = '1s'
+    }
+    else{
+        noiseStep = 0.002;
+        let logo = document.getElementById('logo');
+        logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
+        logo.style.transform = 'translate(0vw, 0vh)';
+        logo.style.transition = '1s'
+    }
 });
 
 document.getElementById('logo').onclick = function(){
-    alert("This site is still a work in progress.\nCheck back later.\nFor now, send me an email!");
-    window.open("mailto:joesum98@gmail.com")
+    // alert("This site is still a work in progress.\nCheck back later.\nFor now, send me an email!");
+    // window.open("mailto:joesum98@gmail.com");
+    if(!logoClicked){storeLogo()}
+    else{unstoreLogo()}
 }

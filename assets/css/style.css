@@ -1,7 +1,27 @@
+:root{
+  --light: #d9d9d9;
+  --dark: #343434;
+  -green: #39512a;
+  --blue: #33596b;
+  --0range: #d9603d;
+  --yellow: #ffba46;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+a{
+  color: var(--light);
+  font-style: normal;
+  font-size: 3vh;
+  text-decoration: none;
+}
+
+a:active{
+  color: var(--yellow);
 }
 
 body {
@@ -87,4 +107,25 @@ svg {
 .portfolio{
   position: absolute;
   top: 110vw;
+}
+
+#navigation{
+  display: none;
+  width: 50vw;
+  float: right;
+}
+
+ul{
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding-top: 2vh;
+  padding-right: 2vw;
+  
+}
+
+.nav-item{
+  display: inline;
+  font-family: "Blenny Trial";
+  
 }

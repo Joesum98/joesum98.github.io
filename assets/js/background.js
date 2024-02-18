@@ -9,7 +9,7 @@ const paths = [];
 // How fast to update simplex noise
 let noiseStep = 0.002
 
-for (let color of colors){
+for (let color of colors) {
     paths.push(document.getElementById(color));
 }
 
@@ -19,26 +19,26 @@ const simplex = new SimplexNoise();
 let maxStep = 40;
 
 // Create a set of points to connect with a spline
-function createPoints(){
+function createPoints() {
     const points = [];
     const numPoints = 6;
-    const dTheta = 2*Math.PI/numPoints;
+    const dTheta = 2 * Math.PI / numPoints;
     const rad = 75;
 
-    for (let i=0; i <numPoints; i++){
+    for (let i = 0; i < numPoints; i++) {
         const theta = i * dTheta;
 
-        const x = 100 + Math.cos(theta)*rad;
-        const y = 100 + Math.sin(theta)*rad;
-        
+        const x = 100 + Math.cos(theta) * rad;
+        const y = 100 + Math.sin(theta) * rad;
+
         //Store the points
         points.push({
-            x:x,
-            y:y,
-            x0:x,
-            y0:y,
-            noiseOffsetX: Math.random()*1000,
-            noiseOffsetY: Math.random()*1000,
+            x: x,
+            y: y,
+            x0: x,
+            y0: y,
+            noiseOffsetX: Math.random() * 1000,
+            noiseOffsetY: Math.random() * 1000,
         });
     }
 
@@ -46,13 +46,13 @@ function createPoints(){
 }
 
 // Maps a number, n, from one range to another 
-function map(n, start1, end1, start2, end2){
-    let frac = (n-start1)/(end1-start1);
-    let range = end2-start2;
-    return start2+range*frac;
+function map(n, start1, end1, start2, end2) {
+    let frac = (n - start1) / (end1 - start1);
+    let range = end2 - start2;
+    return start2 + range * frac;
 }
 
-function storeLogo(){
+function storeLogo() {
     logoClicked = true;
     noiseStep = 0.01;
     let logo = document.getElementById('logo');
@@ -65,8 +65,8 @@ function storeLogo(){
     document.body.style.overflow = "scroll";
 }
 
-function unstoreLogo(){
-    window.scrollTo(0,0);
+function unstoreLogo() {
+    window.scrollTo(0, 0);
     let logo = document.getElementById('logo');
     document.body.style.overflow = "hidden";
     logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
@@ -79,47 +79,50 @@ function unstoreLogo(){
 }
 
 const shapes = [];
-for (let color of colors){
+for (let color of colors) {
     shapes.push(createPoints())
 }
 
 (function animate() {
-    for (let i=0; i<colors.length; i++){
+    for (let i = 0; i < colors.length; i++) {
         let points = shapes[i]
         paths[i].setAttribute("d", spline(points, 1, true));
-    
+
         // for every point...
         for (let i = 0; i < points.length; i++) {
-        const point = points[i];
-    
-        // return a pseudo random value between -1 / 1 based on this point's current x, y positions in "time"
-        const nX = simplex.noise2D(point.noiseOffsetX, point.noiseOffsetX);
-        const nY = simplex.noise2D(point.noiseOffsetY, point.noiseOffsetY);
-        // map this noise value to a new value, somewhere between it's original location -20 and it's original location + 20
-        const x = map(nX, -1, 1, point.x0 - maxStep, point.x0 + maxStep);
-        const y = map(nY, -1, 1, point.y0 - maxStep, point.y0 + maxStep);
-    
-        // update the point's current coordinates
-        point.x = x;
-        point.y = y;
-    
-        // progress the point's x, y values through "time"
-        point.noiseOffsetX += noiseStep;
-        point.noiseOffsetY += noiseStep;
+            const point = points[i];
+
+            // return a pseudo random value between -1 / 1 based on this point's current x, y positions in "time"
+            const nX = simplex.noise2D(point.noiseOffsetX, point.noiseOffsetX);
+            const nY = simplex.noise2D(point.noiseOffsetY, point.noiseOffsetY);
+            // map this noise value to a new value, somewhere between it's original location -20 and it's original location + 20
+            const x = map(nX, -1, 1, point.x0 - maxStep, point.x0 + maxStep);
+            const y = map(nY, -1, 1, point.y0 - maxStep, point.y0 + maxStep);
+
+            // update the point's current coordinates
+            point.x = x;
+            point.y = y;
+
+            // progress the point's x, y values through "time"
+            point.noiseOffsetX += noiseStep;
+            point.noiseOffsetY += noiseStep;
         }
     }
     requestAnimationFrame(animate);
 })();
 
-document.getElementById('logo').addEventListener('mouseover', () => {
-    if (!logoClicked){
+let logo = document.getElementById('logo');
+let nav = document.getElementById("navigation")
+
+logo.addEventListener('mouseover', () => {
+    if (!logoClicked) {
         noiseStep = 0.006;
         let logo = document.getElementById('logo');
         logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(150%)'
         logo.style.transform = 'translate(41vw, 35vh)';
         logo.style.transition = '1s'
     }
-    else{
+    else {
         noiseStep = 0.006;
         let logo = document.getElementById('logo');
         logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(150%)'
@@ -127,16 +130,16 @@ document.getElementById('logo').addEventListener('mouseover', () => {
         logo.style.transition = '1s'
     }
 });
-    
-document.getElementById('logo').addEventListener('mouseleave', () => {
-    if (!logoClicked){
+
+logo.addEventListener('mouseleave', () => {
+    if (!logoClicked) {
         noiseStep = 0.002;
         let logo = document.getElementById('logo');
         logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
         logo.style.transform = 'translate(42vw, 36vh)';
         logo.style.transition = '1s'
     }
-    else{
+    else {
         noiseStep = 0.002;
         let logo = document.getElementById('logo');
         logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
@@ -145,9 +148,25 @@ document.getElementById('logo').addEventListener('mouseleave', () => {
     }
 });
 
-document.getElementById('logo').onclick = function(){
+logo.onclick = function () {
     // alert("This site is still a work in progress.\nCheck back later.\nFor now, send me an email!");
     // window.open("mailto:joesum98@gmail.com");
-    if(!logoClicked){storeLogo()}
-    else{unstoreLogo()}
+    logo.style.pointerEvents = "none"
+    if (!logoClicked) {
+        storeLogo();
+        nav.style.display = "inline";
+        nav.style.transition = "2s"
+        setTimeout(function(){
+            logo.style.pointerEvents = "auto"
+        }, 3000);
+    }
+    else {
+        unstoreLogo()
+        nav.style.display = "none";
+        nav.style.transition = "2s"
+        setTimeout(function(){
+            logo.style.pointerEvents = "auto"
+        }, 3000);
+    }
+    
 }

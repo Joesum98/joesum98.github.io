@@ -55,7 +55,6 @@ function map(n, start1, end1, start2, end2) {
 function storeLogo() {
     logoClicked = true;
     noiseStep = 0.01;
-    let logo = document.getElementById('logo');
     logo.style.paddingLeft = '5px'
     logo.style.paddingTop = '2px'
     logo.style.transform = 'translate(0vw, 0vh)';
@@ -63,11 +62,13 @@ function storeLogo() {
     logo.style.filter = 'drop-shadow(black 20px 20px 10px)';
     logo.style.transition = '4s';
     document.body.style.overflow = "scroll";
+    setTimeout(function () {
+        logo.style.pointerEvents = "auto"
+    }, 3000);
 }
 
 function unstoreLogo() {
     window.scrollTo(0, 0);
-    let logo = document.getElementById('logo');
     document.body.style.overflow = "hidden";
     logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
     logo.style.scale = '1';
@@ -76,6 +77,29 @@ function unstoreLogo() {
     logo.style.transition = '4s';
     noiseStep = 0.002;
     logoClicked = false;
+    setTimeout(function () {
+        logo.style.pointerEvents = "auto"
+    }, 3000);
+}
+
+function unhideNavigation() {
+    setInterval(function () {
+        var opacity = nav.style.opacity;
+        if (opacity <= 0) {
+            opacity += 0.1;
+            nav.style.opacity = opacity;
+        }
+    }, 50);
+}
+
+function hideNavigation() {
+    setInterval(function () {
+        var opacity = nav.style.opacity;
+        if (opacity >= 0) {
+            opacity -= 0.1;
+            nav.style.opacity = opacity;
+        }
+    }, 50);
 }
 
 const shapes = [];
@@ -112,19 +136,17 @@ for (let color of colors) {
 })();
 
 let logo = document.getElementById('logo');
-let nav = document.getElementById("navigation")
+let nav = document.getElementById("nav-list")
 
 logo.addEventListener('mouseover', () => {
     if (!logoClicked) {
         noiseStep = 0.006;
-        let logo = document.getElementById('logo');
         logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(150%)'
         logo.style.transform = 'translate(41vw, 35vh)';
         logo.style.transition = '1s'
     }
     else {
         noiseStep = 0.006;
-        let logo = document.getElementById('logo');
         logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(150%)'
         logo.style.transform = 'translate(-1vw, -1vh)';
         logo.style.transition = '1s'
@@ -134,14 +156,12 @@ logo.addEventListener('mouseover', () => {
 logo.addEventListener('mouseleave', () => {
     if (!logoClicked) {
         noiseStep = 0.002;
-        let logo = document.getElementById('logo');
         logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
         logo.style.transform = 'translate(42vw, 36vh)';
         logo.style.transition = '1s'
     }
     else {
         noiseStep = 0.002;
-        let logo = document.getElementById('logo');
         logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
         logo.style.transform = 'translate(0vw, 0vh)';
         logo.style.transition = '1s'
@@ -153,20 +173,14 @@ logo.onclick = function () {
     // window.open("mailto:joesum98@gmail.com");
     logo.style.pointerEvents = "none"
     if (!logoClicked) {
+        alert("This site is still a work in progress. Check back later.\nFor now, send me an email!");
+        open("mailto:joesum98@gmail.com");
         storeLogo();
-        nav.style.display = "inline";
-        nav.style.transition = "2s"
-        setTimeout(function(){
-            logo.style.pointerEvents = "auto"
-        }, 3000);
+        unhideNavigation();
     }
     else {
-        unstoreLogo()
-        nav.style.display = "none";
-        nav.style.transition = "2s"
-        setTimeout(function(){
-            logo.style.pointerEvents = "auto"
-        }, 3000);
+        unstoreLogo();
+        hideNavigation();
     }
-    
+
 }

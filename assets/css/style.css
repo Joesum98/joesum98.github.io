@@ -101,12 +101,7 @@ svg {
   right: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(200px);
-}
-
-.portfolio{
-  position: absolute;
-  top: 110vw;
+  backdrop-filter: blur(150px);
 }
 
 #navigation{
@@ -127,5 +122,4 @@ ul{
 .nav-item{
   display: inline;
   font-family: "Blenny Trial";
-  
 }

@@ -25,6 +25,11 @@ a:active {
   color: var(--yellow);
 }
 
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
 body {
   /* align our svg to the center of the viewport both horizontally and vertically */
   overflow: hidden;
@@ -93,6 +98,7 @@ svg {
   display: block;
   transform: translate(42vw, 36vh);
   filter: drop-shadow(black 30px 30px 10px);
+  z-index: 999;
 }
 
 #texture {
@@ -102,6 +108,12 @@ svg {
   width: 100vw;
   height: 100vh;
   backdrop-filter: blur(150px);
+}
+
+.splash-page {
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
 #navigation {
@@ -125,23 +137,32 @@ ul {
 
 .skills-section {
   position: absolute;
-  translate: 27vw 150vh;
+  width: 80vw;
+  height: 80vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  translate: 0vw 100vh;
+  place-items: center;
+  /* pointer-events: none; */
 }
 
 .code {
-  position: absolute;
-  background-color: #d9d9d920;
+  position: relative;
+  /* background-color: #d9d9d920; */
   width: 50vw;
   aspect-ratio: 1.618;
   display: grid;
   place-items: center;
-  transform: translate(-50%, -50%);
+  transform: translate(10%, 10%);
+  color: #d9d9d9;
+  cursor: cell;
 }
 
 .bubbles {
   position: absolute;
-  /* background-color: #d9d9d920; */
-  width: 10%;
+  width: 7vw;
   aspect-ratio: 1;
   border-radius: 50%;
   display: grid;
@@ -151,7 +172,7 @@ ul {
 .code-bubble {
   position: absolute;
   background-color: #d9d9d920;
-  width: 100%;
+  width: 125%;
   opacity: 0%;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -162,6 +183,7 @@ ul {
   font-size: 150%;
   text-align: center;
   line-height: 100%;
+  transform: translate(0, 100%);
 }
 
 .code-text {
@@ -171,17 +193,17 @@ ul {
   text-align: center;
   font-family: "Blenny Trial";
   font-size: 3rem;
-  cursor: pointer;
 }
 
 .skills {
-  position: absolute;
-  background-color: #d9d9d920;
+  position: relative;
+  /* background-color: #d9d9d920; */
   width: 50vw;
   aspect-ratio: 1.618;
   display: grid;
   place-items: center;
-  transform: translate(40%, 55%);
+  transform: translate(50%, 0%);
+  color: #d9d9d9;
 }
 
 .rectangles {
@@ -200,6 +222,7 @@ ul {
   width: auto;
   opacity: 0%;
   border-radius: 5%;
+  padding: 10%;
 }
 
 .rectangle-text {

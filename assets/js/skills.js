@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
     skillsText.addEventListener("mouseover", async e => {
-        console.log(rectangles)
         for (let i = 0; i < rectangles.length; i++) {
             theta = 2 * Math.PI / rectangles.length * i - 3 * Math.PI / 4;
             dtheta = Math.PI / 6 * (Math.random() - 1);

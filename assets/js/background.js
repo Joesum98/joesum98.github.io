@@ -137,7 +137,7 @@ let nav = document.getElementById("navigation");
 logo.addEventListener('mouseover', () => {
     if (!logoClicked) {
         noiseStep = 0.006;
-        logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(150%)'
+        logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(130%)'
         logo.style.transform = 'translate(41vw, 35vh)';
         logo.style.transition = '1s'
     }

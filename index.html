@@ -1,42 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testing</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Testing</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-
-<body>
-  <div class="background">
-    <script type="module" src="assets/js/background.js"></script>
-    <svg class='blobs' viewBox="0 0 200 200">
-      <path id="yellow" d="" fill="#FFBA46"></path>
-      <path id="green" d="" fill="#39512A"></path>
-      <path id="orange" d="" fill="#D1603D"></path>
-      <path id="blue" d="" fill="#33596B"></path>
-    </svg>
-    <div id="blur">
-      <img id="texture" src="assets/img/background/Texture.png" alt="" />
-      <img id="logo" src="assets/img/logo.png" alt="logo" />
+  <body>
+    <div class="background">
+      <script type="module" src="assets/js/background.js"></script>
+      <svg class="blobs" viewBox="0 0 200 200">
+        <path id="yellow" d="" fill="#FFBA46"></path>
+        <path id="green" d="" fill="#39512A"></path>
+        <path id="orange" d="" fill="#D1603D"></path>
+        <path id="blue" d="" fill="#33596B"></path>
+      </svg>
+      <div id="blur">
+        <img id="texture" src="assets/img/background/Texture.png" alt="" />
+        <img
+          id="logo"
+          src="assets/img/logo.png"
+          alt="logo"
+          onclick="applyCSS('css/theme_red.css'); return false;"
+        />
+      </div>
     </div>
-  </div>
-  <div>
-    <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1"></nav>
-  </div>
-  <div id="navigation">
-    <ul id="nav-list">
-      <li class="nav-item" id="about"><a href="#">About</a>
-      </li>
-      <li class="nav-item" id="resume"><a href="#">Resume</a>
-      </li>
-      <li class="nav-item" id="projects"><a href="#">Projects</a>
-      </li>
-      <li class="nav-item" id="contact"><a href="#">Contact</a>
-      </li>
-    </ul>
-  </div>
-</body>
-
+    <div id="navigation">
+      <ul id="nav-list">
+        <li class="nav-item" id="about"><a href="#">About</a></li>
+        <li class="nav-item" id="resume"><a href="#">Resume</a></li>
+        <li class="nav-item" id="projects"><a href="#">Projects</a></li>
+        <li class="nav-item" id="contact"><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="skills-section">
+      <script src="assets/js/skills.js"></script>
+      <div class="code">
+        <div class="bubbles">
+          <div class="code-bubble"><p class="bubble-text">Py</p></div>
+          <div class="code-bubble"><p class="bubble-text">C#</p></div>
+          <div class="code-bubble"><p class="bubble-text">Java</p></div>
+          <div class="code-bubble"><p class="bubble-text">JS</p></div>
+          <div class="code-bubble"><p class="bubble-text">HTML</p></div>
+          <div class="code-bubble"><p class="bubble-text">Git</p></div>
+          <div class="code-bubble"><p class="bubble-text">CAD</p></div>
+          <div class="code-bubble"><p class="bubble-text">UI/UX</p></div>
+        </div>
+        <h2 class="code-text">Coding & Software</h2>
+      </div>
+      <div class="skills">
+        <div class="rectangles">
+          <div class="skill-rectangle">
+            <p class="rectangle-text">Math / Physics</p>
+          </div>
+          <div class="skill-rectangle">
+            <p class="rectangle-text">Data Visualization</p>
+          </div>
+          <div class="skill-rectangle">
+            <p class="rectangle-text">Data Analysis</p>
+          </div>
+          <div class="skill-rectangle">
+            <p class="rectangle-text">Technical Writing</p>
+          </div>
+          <div class="skill-rectangle">
+            <p class="rectangle-text">Signal Processing</p>
+          </div>
+          <div class="skill-rectangle">
+            <p class="rectangle-text">Machine Learning</p>
+          </div>
+        </div>
+        <h2 class="skill-text">Skills</h2>
+      </div>
+    </ id="skills-section">
+  </body>
 </html>

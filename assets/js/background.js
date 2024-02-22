@@ -18,6 +18,10 @@ const simplex = new SimplexNoise();
 
 let maxStep = 40;
 
+async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // Create a set of points to connect with a spline
 function createPoints() {
     const points = [];
@@ -52,6 +56,8 @@ function map(n, start1, end1, start2, end2) {
     return start2 + range * frac;
 }
 
+
+
 function storeLogo() {
     logoClicked = true;
     noiseStep = 0.01;
@@ -83,23 +89,13 @@ function unstoreLogo() {
 }
 
 function unhideNavigation() {
-    setInterval(function () {
-        var opacity = nav.style.opacity;
-        if (opacity <= 0) {
-            opacity += 0.1;
-            nav.style.opacity = opacity;
-        }
-    }, 50);
+    nav.style.display = "inline";
+    console.log(nav.children[0].children);
 }
 
 function hideNavigation() {
-    setInterval(function () {
-        var opacity = nav.style.opacity;
-        if (opacity >= 0) {
-            opacity -= 0.1;
-            nav.style.opacity = opacity;
-        }
-    }, 50);
+    nav.style.display = "none";
+
 }
 
 const shapes = [];
@@ -136,7 +132,7 @@ for (let color of colors) {
 })();
 
 let logo = document.getElementById('logo');
-let nav = document.getElementById("nav-list")
+let nav = document.getElementById("navigation");
 
 logo.addEventListener('mouseover', () => {
     if (!logoClicked) {
@@ -169,12 +165,10 @@ logo.addEventListener('mouseleave', () => {
 });
 
 logo.onclick = function () {
-    // alert("This site is still a work in progress.\nCheck back later.\nFor now, send me an email!");
-    // window.open("mailto:joesum98@gmail.com");
     logo.style.pointerEvents = "none"
     if (!logoClicked) {
-        alert("This site is still a work in progress. Check back later.\nFor now, send me an email!");
-        open("mailto:joesum98@gmail.com");
+        // alert("This site is still a work in progress. Check back later.\nFor now, send me an email!");
+        // open("mailto:joesum98@gmail.com");
         storeLogo();
         unhideNavigation();
     }

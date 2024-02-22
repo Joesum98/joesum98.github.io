@@ -1,4 +1,4 @@
-:root{
+:root {
   --light: #d9d9d9;
   --dark: #343434;
   -green: #39512a;
@@ -13,14 +13,15 @@
   box-sizing: border-box;
 }
 
-a{
+a {
+  visibility: visible;
   color: var(--light);
   font-style: normal;
   font-size: 3vh;
   text-decoration: none;
 }
 
-a:active{
+a:active {
   color: var(--yellow);
 }
 
@@ -30,14 +31,13 @@ body {
   scroll-behavior: smooth;
 }
 
-h1{
-  font-family: 'Blenny Trial';
+h1 {
+  font-family: "Blenny Trial";
   font-style: normal;
   color: #d9d9d9;
   position: absolute;
   width: 100vw;
   height: auto;
-
 }
 
 .background {
@@ -89,7 +89,7 @@ svg {
 
 #logo {
   width: 15%;
-  height: auto;
+  aspect-ratio: 5/7;
   display: block;
   transform: translate(42vw, 36vh);
   filter: drop-shadow(black 30px 30px 10px);
@@ -104,22 +104,117 @@ svg {
   backdrop-filter: blur(150px);
 }
 
-#navigation{
+#navigation {
   display: none;
   width: 50vw;
   float: right;
 }
 
-ul{
+ul {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
   padding-top: 2vh;
   padding-right: 2vw;
-  
 }
 
-.nav-item{
+.nav-item {
   display: inline;
   font-family: "Blenny Trial";
+}
+
+.skills-section {
+  position: absolute;
+  translate: 27vw 150vh;
+}
+
+.code {
+  position: absolute;
+  background-color: #d9d9d920;
+  width: 50vw;
+  aspect-ratio: 1.618;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%);
+}
+
+.bubbles {
+  position: absolute;
+  /* background-color: #d9d9d920; */
+  width: 10%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.code-bubble {
+  position: absolute;
+  background-color: #d9d9d920;
+  width: 100%;
+  opacity: 0%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.bubble-text {
+  font-family: "Fira Code";
+  font-size: 150%;
+  text-align: center;
+  line-height: 100%;
+}
+
+.code-text {
+  margin: 0;
+  position: absolute;
+  width: 50%;
+  text-align: center;
+  font-family: "Blenny Trial";
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.skills {
+  position: absolute;
+  background-color: #d9d9d920;
+  width: 50vw;
+  aspect-ratio: 1.618;
+  display: grid;
+  place-items: center;
+  transform: translate(40%, 55%);
+}
+
+.rectangles {
+  position: absolute;
+  /* background-color: #d9d9d920; */
+  width: 10%;
+  aspect-ratio: 1;
+  border-radius: 10%;
+  display: grid;
+  place-items: center;
+}
+
+.skill-rectangle {
+  position: absolute;
+  background-color: #d9d9d920;
+  width: auto;
+  opacity: 0%;
+  border-radius: 5%;
+}
+
+.rectangle-text {
+  font-family: "Fira Code";
+  font-size: 150%;
+  text-align: center;
+  line-height: 100%;
+}
+
+.skill-text {
+  margin: 0;
+  position: absolute;
+  width: 50%;
+  text-align: center;
+  font-family: "Blenny Trial";
+  font-size: 3rem;
+  cursor: pointer;
 }

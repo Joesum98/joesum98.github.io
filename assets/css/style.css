@@ -62,29 +62,39 @@ svg {
 #green {
   position: absolute;
   overflow: hidden;
-  transform: translate(10%, 10%);
-  scale: 1.5;
+  transform: translate(35%, 40%);
 }
 #blue {
   position: absolute;
   overflow: hidden;
-  transform: translate(-40%, 20%);
-  scale: 1.5;
+  transform: translate(-35%, 50%);
 }
 #yellow {
   position: absolute;
   overflow: hidden;
-  transform: translate(-50%, -40%);
-  scale: 1.5;
+  transform: translate(-35%, -50%);
 }
 #orange {
   position: absolute;
   overflow: hidden;
-  transform: translate(15%, -40%);
-  scale: 1.5;
+  transform: translate(35%, -40%);
+}
+
+#blur-and-stuff {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 #blur {
+  backdrop-filter: blur(150px);
+  width: 100%;
+  height: 100%;
+}
+
+#texture-and-logo {
   position: absolute;
   top: 0;
   right: 0;
@@ -93,12 +103,14 @@ svg {
 }
 
 #logo {
+  position: relative;
+  top: 0;
+  right: 0;
   width: 15%;
   aspect-ratio: 5/7;
   display: block;
   transform: translate(42vw, 36vh);
   filter: drop-shadow(black 30px 30px 10px);
-  z-index: 999;
 }
 
 #texture {
@@ -107,32 +119,6 @@ svg {
   right: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(150px);
-}
-
-.splash-page {
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-}
-
-#navigation {
-  display: none;
-  width: 50vw;
-  float: right;
-}
-
-ul {
-  display: flex;
-  justify-content: space-between;
-  list-style-type: none;
-  padding-top: 2vh;
-  padding-right: 2vw;
-}
-
-.nav-item {
-  display: inline;
-  font-family: "Blenny Trial";
 }
 
 .skills-section {

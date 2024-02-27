@@ -2,12 +2,15 @@ import { spline } from 'https://cdn.skypack.dev/@georgedoescode/spline@1.0.1';
 import SimplexNoise from 'https://cdn.skypack.dev/simplex-noise@2.4.0';
 
 const colors = ['green', 'blue', 'orange', 'yellow'];
+const numOfPoints = [4, 5, 6, 7];
 let logoClicked = false;
 
 // our <path> element for each colored blob
 const paths = [];
 // How fast to update simplex noise
-let noiseStep = 0.002
+let noiseStep = 0.003;
+let logo = document.getElementById('logo');
+let blur = document.getElementById("blur");
 
 for (let color of colors) {
     paths.push(document.getElementById(color));
@@ -23,11 +26,10 @@ async function sleep(ms) {
 }
 
 // Create a set of points to connect with a spline
-function createPoints() {
+function createPoints(numPoints) {
     const points = [];
-    const numPoints = 6;
     const dTheta = 2 * Math.PI / numPoints;
-    const rad = 75;
+    const rad = 120;
 
     for (let i = 0; i < numPoints; i++) {
         const theta = i * dTheta;
@@ -56,11 +58,9 @@ function map(n, start1, end1, start2, end2) {
     return start2 + range * frac;
 }
 
-
-
 function storeLogo() {
     logoClicked = true;
-    noiseStep = 0.01;
+    noiseStep = 0.003;
     logo.style.paddingLeft = '5px'
     logo.style.paddingTop = '2px'
     logo.style.transform = 'translate(0vw, 0vh)';
@@ -70,7 +70,8 @@ function storeLogo() {
     document.body.style.overflow = "scroll";
     setTimeout(function () {
         logo.style.pointerEvents = "auto"
-    }, 3000);
+        noiseStep = 0;
+    }, 5000);
 }
 
 function unstoreLogo() {
@@ -81,26 +82,46 @@ function unstoreLogo() {
     logo.style.transform = 'translate(42vw, 36vh)';
     logo.style.padding = '0px';
     logo.style.transition = '4s';
-    noiseStep = 0.002;
+    noiseStep = 0.003;
     logoClicked = false;
     setTimeout(function () {
         logo.style.pointerEvents = "auto"
-    }, 3000);
+        noiseStep = 0.003;
+    }, 5000);
 }
 
-function unhideNavigation() {
-    nav.style.display = "inline";
-    console.log(nav.children[0].children);
+function deconstruct() {
+    blur.style.width = '75vw';
+    blur.style.height = "30vh";
+    blur.style.transform = ' translate(30%, 10%)';
+    blur.style.backgroundColor = '#d9d9d920';
+    blur.style.transition = '5s';
+    for (let i = 0; i < colors.length; i++) {
+        let dy = 1.5;
+        let blob = document.getElementById(colors[i]);
+        blob.style.transform = `translate(0vw, ${3 + i * dy}vh)  scale(0.05)`;
+        blob.style.transition = '5s';
+
+    }
 }
 
-function hideNavigation() {
-    nav.style.display = "none";
+function construct() {
+    blur.style.transform = 'translate(0%, 0%)';
+    blur.style.width = '100vw';
+    blur.style.height = "100vh";
+    blur.style.backgroundColor = '#d9d9d900';
+    blur.style.transition = '5s';
+    document.getElementById("green").style.transform = "translate(35%, 40%) scale(1)";
+    document.getElementById("blue").style.transform = "translate(-35%, 50%) scale(1)";
+    document.getElementById("yellow").style.transform = "translate(-35%, -50%) scale(1)";
+    document.getElementById("orange").style.transform = "translate(35%, -40%) scale(1)";
+    noiseStep = 0.002;
 
 }
 
 const shapes = [];
-for (let color of colors) {
-    shapes.push(createPoints())
+for (let i = 0; i < colors.length; i++) {
+    shapes.push(createPoints(numOfPoints[i]))
 }
 
 (function animate() {
@@ -131,18 +152,14 @@ for (let color of colors) {
     requestAnimationFrame(animate);
 })();
 
-let logo = document.getElementById('logo');
-let nav = document.getElementById("navigation");
-
 logo.addEventListener('mouseover', () => {
     if (!logoClicked) {
-        noiseStep = 0.006;
-        logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(130%)'
+        noiseStep = 0.008;
+        logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(150%)'
         logo.style.transform = 'translate(41vw, 35vh)';
         logo.style.transition = '1s'
     }
     else {
-        noiseStep = 0.006;
         logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(150%)'
         logo.style.transform = 'translate(-1vw, -1vh)';
         logo.style.transition = '1s'
@@ -151,13 +168,12 @@ logo.addEventListener('mouseover', () => {
 
 logo.addEventListener('mouseleave', () => {
     if (!logoClicked) {
-        noiseStep = 0.002;
+        noiseStep = 0.003;
         logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
         logo.style.transform = 'translate(42vw, 36vh)';
         logo.style.transition = '1s'
     }
     else {
-        noiseStep = 0.002;
         logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
         logo.style.transform = 'translate(0vw, 0vh)';
         logo.style.transition = '1s'
@@ -170,11 +186,11 @@ logo.onclick = function () {
         // alert("This site is still a work in progress. Check back later.\nFor now, send me an email!");
         // open("mailto:joesum98@gmail.com");
         storeLogo();
-        unhideNavigation();
+        deconstruct();
     }
     else {
         unstoreLogo();
-        hideNavigation();
+        construct();
     }
 
 }

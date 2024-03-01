@@ -8,9 +8,12 @@ let logoClicked = false;
 // our <path> element for each colored blob
 const paths = [];
 // How fast to update simplex noise
-let noiseStep = 0.003;
-let logo = document.getElementById('logo');
-let blur = document.getElementById("blur");
+var noiseStep = 0.003;
+var logo = document.getElementById("logo");
+var blur = document.getElementById("blur");
+var nav = document.getElementsByClassName("nav")[0];
+var hero = document.getElementsByClassName("hero")[0];
+var splash = document.getElementsByClassName("splash")[0];
 
 for (let color of colors) {
     paths.push(document.getElementById(color));
@@ -61,17 +64,20 @@ function map(n, start1, end1, start2, end2) {
 function storeLogo() {
     logoClicked = true;
     noiseStep = 0.003;
-    logo.style.paddingLeft = '5px'
-    logo.style.paddingTop = '2px'
+    logo.style.scale = '.46';
+    logo.style.top = '-65px'
+    logo.style.left = '47px'
     logo.style.transform = 'translate(0vw, 0vh)';
-    logo.style.scale = '.5';
-    logo.style.filter = 'drop-shadow(black 20px 20px 10px)';
-    logo.style.transition = '4s';
+    logo.style.opacity = '0';
+    logo.style.transition = '5s';
     document.body.style.overflow = "scroll";
     setTimeout(function () {
         logo.style.pointerEvents = "auto"
         noiseStep = 0;
+        splash.style.display = 'none';
     }, 5000);
+    nav.style.display = 'flex';
+    hero.style.display = 'flex';
 }
 
 function unstoreLogo() {
@@ -91,17 +97,15 @@ function unstoreLogo() {
 }
 
 function deconstruct() {
-    blur.style.width = '75vw';
-    blur.style.height = "30vh";
-    blur.style.transform = ' translate(30%, 10%)';
+    blur.style.width = '100vw';
+    blur.style.height = "0vh";
     blur.style.backgroundColor = '#d9d9d920';
     blur.style.transition = '5s';
     for (let i = 0; i < colors.length; i++) {
-        let dy = 1.5;
         let blob = document.getElementById(colors[i]);
-        blob.style.transform = `translate(0vw, ${3 + i * dy}vh)  scale(0.05)`;
+        blob.style.transform = 'translate(10vw, 8vh)  scale(0.05)';
+        blob.style.opacity = '0';
         blob.style.transition = '5s';
-
     }
 }
 
@@ -160,7 +164,7 @@ logo.addEventListener('mouseover', () => {
         logo.style.transition = '1s'
     }
     else {
-        logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(150%)'
+        // logo.style.filter = 'drop-shadow(black 60px 60px 40px) brightness(150%)'
         logo.style.transform = 'translate(-1vw, -1vh)';
         logo.style.transition = '1s'
     }
@@ -174,7 +178,7 @@ logo.addEventListener('mouseleave', () => {
         logo.style.transition = '1s'
     }
     else {
-        logo.style.filter = 'drop-shadow(black 30px 30px 10px)';
+        logo.style.filter = 'none';
         logo.style.transform = 'translate(0vw, 0vh)';
         logo.style.transition = '1s'
     }

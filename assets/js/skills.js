@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < bubbles.length; i++) {
             theta = 2 * Math.PI / bubbles.length * i;
             dtheta = Math.PI / 6 * (Math.random() - 1);
-            dy = 300 * Math.sin(theta + dtheta);
-            dx = 300 * Math.cos(theta + dtheta);
+            dy = 200 * Math.sin(theta + dtheta);
+            dx = 200 * Math.cos(theta + dtheta);
             console.log()
             bubbles[i].style.opacity = "100%"
             bubbles[i].style.transform = `translate(${dx}%, ${dy}%)`;

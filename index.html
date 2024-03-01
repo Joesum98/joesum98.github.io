@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Testing</title>
+    <title>Restarting website</title>
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-
   <body>
-    <div class="background">
+    <div class="splash">
       <script type="module" src="assets/js/background.js"></script>
       <svg class="blobs" viewBox="0 0 200 200">
         <path id="blue" d="" fill="#33596B"></path>
@@ -16,14 +15,40 @@
         <path id="yellow" d="" fill="#FFBA46"></path>
         <path id="green" d="" fill="#39512A"></path>
       </svg>
-      <div id="blur-and-stuff">
         <div id="blur"></div>
-        <div id="texture-and-logo">
-          <img id="texture" src="assets/img/texture.png" />
-          <img id="logo" src="assets/img/logo.png" />
-        </div>
+        <img id="logo" src="assets/img/logo.png" />
+    </div>
+
+    <div class="nav">
+      <img id="full-logo" src="assets/img/full logo.png"></img>
+      <div class="menu">
+        <a id="about" href="#">About</a>
+        <a id="projects" href="#">Projects</a>
+        <a id="contact" href="#">Contact</a>
       </div>
     </div>
+
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Deconstructing complex systems...</h1>
+        <p>...to effortlessly identify problems & solutions</p>
+        <div class="buttons">
+          <a class="button primary"href="#">
+            Buttton 1
+          </a>
+          <a class="button secondary" href="#">
+            Button 2
+          </a>
+        </div>
+      </div>
+      <div class="blob-cont">
+        <div class="yellow blob"></div>
+        <div class="orange blob"></div>
+        <div class="green blob"></div>
+        <div class="blue blob"></div>
+      </div>
+    </div>
+
     <div class="skills-section">
       <script src="assets/js/skills.js"></script>
       <div class="code">
@@ -63,5 +88,22 @@
         <h2 class="skill-text">Skills</h2>
       </div>
     </div>
+
+    <svg>
+      <filter id="noiseFilter">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.6"
+          stitchTiles="stitch"
+        />
+        <feColorMatrix
+          in="colorNoise"
+          type="matrix"
+          values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"
+        />
+        <feComposite operator="in" in2="SourceGraphic" result="monoNoise" />
+        <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
+      </filter>
+    </svg>
   </body>
 </html>

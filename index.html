@@ -7,39 +7,31 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <div class="splash">
-      <script type="module" src="assets/js/background.js"></script>
-      <svg class="blobs" viewBox="0 0 200 200">
-        <path id="blue" d="" fill="#33596B"></path>
-        <path id="orange" d="" fill="#D1603D"></path>
-        <path id="yellow" d="" fill="#FFBA46"></path>
-        <path id="green" d="" fill="#39512A"></path>
-      </svg>
-        <div id="blur"></div>
-        <img id="logo" src="assets/img/logo.png" />
-    </div>
+    <section class="splash">
+        <script type="module" src="assets/js/background.js"></script>
+        <svg class="blobs" viewBox="0 0 200 200">
+          <path id="blue" d="" fill="#33596B"></path>
+          <path id="orange" d="" fill="#D1603D"></path>
+          <path id="yellow" d="" fill="#FFBA46"></path>
+          <path id="green" d="" fill="#39512A"></path>
+        </svg>
+          <div id="blur"></div>
+          <img id="logo" src="assets/img/logo.png" />
+    </section >
 
-    <div class="nav">
+    <section class="nav">
       <img id="full-logo" src="assets/img/full logo.png"></img>
       <div class="menu">
-        <a id="about" href="#">About</a>
-        <a id="projects" href="#">Projects</a>
-        <a id="contact" href="#">Contact</a>
+        <a id="about-link" href="#">About</a>
+        <a id="projects-link" href="#">Projects</a>
+        <a id="contact-link" href="#">Contact</a>
       </div>
-    </div>
+    </section>
 
-    <div class="hero">
+    <section class="hero">
       <div class="hero-text">
         <h1>Deconstructing complex systems...</h1>
-        <p>...to effortlessly identify problems & solutions</p>
-        <div class="buttons">
-          <a class="button primary"href="#">
-            Buttton 1
-          </a>
-          <a class="button secondary" href="#">
-            Button 2
-          </a>
-        </div>
+        <p>...to effortlessly identify problems & solutions.</p>
       </div>
       <div class="blob-cont">
         <div class="yellow blob"></div>
@@ -47,9 +39,18 @@
         <div class="green blob"></div>
         <div class="blue blob"></div>
       </div>
-    </div>
+    </section>
 
-    <div class="skills-section">
+    <section class="about">
+      <h1>Hi! I'm Joe</h1>
+      <h2> (and this is my dog, Atticus)</h2>
+      <div class="photos">
+        <img class="me photo" src="assets/img/about/me.jpeg" alt="">
+        <img class="atticus photo" src="assets/img/about/atticus.jpeg" alt="">
+      </div>
+    </section>
+
+    <section class="skills-section">
       <script src="assets/js/skills.js"></script>
       <div class="code">
         <div class="bubbles">
@@ -87,7 +88,7 @@
         </div>
         <h2 class="skill-text">Skills</h2>
       </div>
-    </div>
+    </section>
 
     <svg>
       <filter id="noiseFilter">

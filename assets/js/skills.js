@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
+
     skillsText.addEventListener("mouseover", async e => {
         for (let i = 0; i < rectangles.length; i++) {
             theta = 2 * Math.PI / rectangles.length * i - 3 * Math.PI / 4;
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
+
     skillsText.addEventListener("mouseleave", async e => {
         for (let rect of rectangles) {
             rect.style.transform = "translate(0%)";
@@ -60,4 +62,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
+
 });

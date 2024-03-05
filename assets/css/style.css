@@ -20,7 +20,7 @@ body {
   background-color: var(--dark);
   font-family: "Recoleta";
 
-  margin: 0 5em;
+  margin: 5em;
 }
 
 /*The splash page*/
@@ -40,12 +40,12 @@ body {
 #blue {
   position: absolute;
   overflow: hidden;
-  transform: translate(-35%, 50%);
+  transform: translate(-30%, 40%);
 }
 #yellow {
   position: absolute;
   overflow: hidden;
-  transform: translate(-35%, -50%);
+  transform: translate(-35%, -65%);
 }
 #orange {
   position: absolute;
@@ -81,27 +81,8 @@ body {
   filter: drop-shadow(black 30px 30px 10px);
 }
 
-a {
-  font-size: 20px;
-  color: var(--light);
-  font-family: "Blenny Trial";
-  text-decoration: none;
-}
-
-#about:hover {
-  color: var(--yellow);
-}
-
-#projects:hover {
-  color: var(--green);
-}
-
-#contact:hover {
-  color: var(--orange);
-}
-
 #full-logo {
-  padding: 20px;
+  padding: 50px;
   width: 400px;
 }
 
@@ -275,27 +256,10 @@ body::before {
   }
 }
 
-/* the rest of the page */
-.nav {
-  display: none;
-  /* display: flex; */
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 3em;
-}
-
+/* Hero */
 .hero {
   display: none;
-  display: flex;
+  margin-bottom: 10vh;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -351,16 +315,79 @@ body::before {
   }
 }
 
+/* Navigation */
+.nav {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3em;
+}
+
+a {
+  font-size: 30px;
+  color: var(--light);
+  font-family: "Blenny Trial";
+  text-decoration: none;
+}
+
+#about-link:hover {
+  color: var(--yellow);
+}
+#projects-link:hover {
+  color: var(--blue);
+}
+#contact-link:hover {
+  color: var(--orange);
+}
+
+/* About Section */
+.about {
+  position: relative;
+  display: none;
+  place-content: center;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  height: 100vh;
+}
+.photos {
+  display: flex;
+  gap: 2rem;
+}
+
+.photo {
+  width: 30vw;
+  aspect-ratio: auto;
+  border-radius: 10%;
+}
+h2 {
+  font-size: 40px;
+  font-weight: normal;
+  font-family: "Blenny Trial";
+  margin: 0;
+  color: var(--light);
+}
+
 /* Skills Section */
 .skills-section {
-  position: absolute;
+  position: relative;
+  background-color: var(--dark);
+  display: none;
   width: 80vw;
   height: 80vh;
   margin-top: 10vh;
   margin-bottom: 10vh;
   margin-left: 10vw;
   margin-right: 10vw;
-  translate: 0vw 100vh;
   place-items: center;
   /* pointer-events: none; */
 }
@@ -372,14 +399,14 @@ body::before {
   aspect-ratio: 1.618;
   display: grid;
   place-items: center;
-  transform: translate(10%, 10%);
+  /* transform: translate(10%, 10%); */
   color: #d9d9d9;
   cursor: cell;
 }
 
 .bubbles {
   position: absolute;
-  width: 7vw;
+  width: 6rem;
   aspect-ratio: 1;
   border-radius: 50%;
   display: grid;
@@ -389,7 +416,7 @@ body::before {
 .code-bubble {
   position: absolute;
   background-color: #d9d9d920;
-  width: 125%;
+  width: 100%;
   opacity: 0%;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -397,7 +424,7 @@ body::before {
 
 .bubble-text {
   font-family: "Fira Code";
-  font-size: 150%;
+  font-size: 2rem;
   text-align: center;
   line-height: 100%;
   transform: translate(0, 100%);
@@ -415,18 +442,18 @@ body::before {
 .skills {
   position: relative;
   /* background-color: #d9d9d920; */
+  /* top: 20vh; */
   width: 50vw;
   aspect-ratio: 1.618;
   display: grid;
   place-items: center;
-  transform: translate(50%, 0%);
   color: #d9d9d9;
 }
 
 .rectangles {
   position: absolute;
-  /* background-color: #d9d9d920; */
-  width: 10%;
+
+  width: 6rem;
   aspect-ratio: 1;
   border-radius: 10%;
   display: grid;
@@ -444,7 +471,7 @@ body::before {
 
 .rectangle-text {
   font-family: "Fira Code";
-  font-size: 150%;
+  font-size: 2rem;
   text-align: center;
   line-height: 100%;
 }

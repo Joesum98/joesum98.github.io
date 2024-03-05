@@ -1,6 +1,17 @@
 import { spline } from 'https://cdn.skypack.dev/@georgedoescode/spline@1.0.1';
 import SimplexNoise from 'https://cdn.skypack.dev/simplex-noise@2.4.0';
 
+var logo = document.getElementById("logo");
+var blur = document.getElementById("blur");
+var splash = document.getElementsByClassName("splash")[0];
+var nav = document.getElementsByClassName("nav")[0];
+var hero = document.getElementsByClassName("hero")[0];
+var about = document.getElementsByClassName("about")[0];
+var skills = document.getElementsByClassName("skills-section")[0];
+
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+}
 const colors = ['green', 'blue', 'orange', 'yellow'];
 const numOfPoints = [4, 5, 6, 7];
 let logoClicked = false;
@@ -9,11 +20,6 @@ let logoClicked = false;
 const paths = [];
 // How fast to update simplex noise
 var noiseStep = 0.003;
-var logo = document.getElementById("logo");
-var blur = document.getElementById("blur");
-var nav = document.getElementsByClassName("nav")[0];
-var hero = document.getElementsByClassName("hero")[0];
-var splash = document.getElementsByClassName("splash")[0];
 
 for (let color of colors) {
     paths.push(document.getElementById(color));
@@ -78,6 +84,8 @@ function storeLogo() {
     }, 5000);
     nav.style.display = 'flex';
     hero.style.display = 'flex';
+    about.style.display = 'grid';
+    skills.style.display = 'flex';
 }
 
 function unstoreLogo() {

@@ -195,8 +195,8 @@ logo.addEventListener('mouseleave', () => {
 logo.onclick = function () {
     logo.style.pointerEvents = "none"
     if (!logoClicked) {
-        // alert("This site is still a work in progress. Check back later.\nFor now, send me an email!");
-        // open("mailto:joesum98@gmail.com");
+        alert("This site is still a work in progress. Check back later.\nFor now, send me an email!");
+        open("mailto:joesum98@gmail.com");
         storeLogo();
         deconstruct();
     }
